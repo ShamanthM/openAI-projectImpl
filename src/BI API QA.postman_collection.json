@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "b03c4e92-7087-48c8-ba6e-24951291e407",
+		"name": "BI API QA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Validate access",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "df3b7da3-aa3a-4eaf-bfe3-cc89157ecd98",
+							"type": "text"
+						},
+						{
+							"key": "Client_Secret",
+							"value": "5KC8Q~gtjE6YeK43LgcymI3o3kLo.vlF8KcxTcZ_",
+							"type": "text"
+						},
+						{
+							"key": "Resource",
+							"value": "api://3c8f42cf-d7c2-4ff9-af3a-6456acf2e3ec",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/675168a2-ddf8-4823-8af4-76ef31c7942c/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"675168a2-ddf8-4823-8af4-76ef31c7942c",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getShipmentData",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJhcGk6Ly8zYzhmNDJjZi1kN2MyLTRmZjktYWYzYS02NDU2YWNmMmUzZWMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC82NzUxNjhhMi1kZGY4LTQ4MjMtOGFmNC03NmVmMzFjNzk0MmMvIiwiaWF0IjoxNjc0NjUzNjk4LCJuYmYiOjE2NzQ2NTM2OTgsImV4cCI6MTY3NDY1NzU5OCwiYWlvIjoiRTJaZ1lHaHVDWGwydHVIRWdSL1BPamkzL1Rza0FRQT0iLCJhcHBpZCI6ImRmM2I3ZGEzLWFhM2EtNGVhZi1iZmUzLWNjODkxNTdlY2Q5OCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzY3NTE2OGEyLWRkZjgtNDgyMy04YWY0LTc2ZWYzMWM3OTQyYy8iLCJvaWQiOiIyYjQ2MGRiNS1jOWJhLTRmMzEtOGY3Ni02ODVmZjk2YTJjZTciLCJyaCI6IjAuQVF3QW9taFJaX2pkSTBpSzlIYnZNY2VVTE05Q2p6ekMxX2xQcnpwa1Zxenk0LXlXQUFBLiIsInJvbGVzIjpbIkJJU2VydmljZUFQSS5SZWFkV3JpdGUiLCJCSVNlcnZpY2VBUEkuUmVhZE9ubHkiXSwic3ViIjoiMmI0NjBkYjUtYzliYS00ZjMxLThmNzYtNjg1ZmY5NmEyY2U3IiwidGlkIjoiNjc1MTY4YTItZGRmOC00ODIzLThhZjQtNzZlZjMxYzc5NDJjIiwidXRpIjoiQXlpMTMzanpUMHVUamtlTXhaaG5BQSIsInZlciI6IjEuMCJ9.PHERrP0Ey8GWPfZ1iDw2z4k4Uc2qWA7_PXW_G8zKTD-SlC2MmutpE5dsQumcKjASD0QFHyev9I553cxqpx8IxQcEjPkgNCcicPK5WuaqfcXs-k5qMSt08n9ldcCgzD5MKVcCiwHXDD6P02jyF0qKdd5RLDkNXxAWR_VsRQnkanc-TBMjVr8CClkLFdnQ2_BcWwlkUNyGr_bszvWd0OGdvj8GRGGPl0XCyuNKyHYefd44vl_X38gClWq6L-u0JTopHXV3mnE3evSyDaXdjXHdv32ivJ5EEBvd6LHRGCL940Put-4qYbLl-21SvCvF4S3Lfx28ykJcGtZBjU0vqJZALA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"CustomerName\":\"Aritzia\",\n\"userEmail\": \"Cooper Lighting, LLC\",\n\"FromDate\" : \"2020-01-01\", \n\"ToDate\": \"2022-12-12\", \n\"ShipmentId\" : null,\n\"ForwarderReference\" : null,\n\"Project\":null, \n\"ForwarderCode\" : null,\n\"ForwarderService\" : null, \n\"Mode\" : null,\n\"IncrementalData\" : \"N\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/DataAcquisition/Shipment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"DataAcquisition",
+						"Shipment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getShipmentStatusData",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJhcGk6Ly8zYzhmNDJjZi1kN2MyLTRmZjktYWYzYS02NDU2YWNmMmUzZWMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC82NzUxNjhhMi1kZGY4LTQ4MjMtOGFmNC03NmVmMzFjNzk0MmMvIiwiaWF0IjoxNjcxMjM1NTA5LCJuYmYiOjE2NzEyMzU1MDksImV4cCI6MTY3MTIzOTQwOSwiYWlvIjoiRTJaZ1lOZ3RQVEhIVkp6QjZScDc5aE9tcnA2SkFBPT0iLCJhcHBpZCI6ImRmM2I3ZGEzLWFhM2EtNGVhZi1iZmUzLWNjODkxNTdlY2Q5OCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzY3NTE2OGEyLWRkZjgtNDgyMy04YWY0LTc2ZWYzMWM3OTQyYy8iLCJvaWQiOiIyYjQ2MGRiNS1jOWJhLTRmMzEtOGY3Ni02ODVmZjk2YTJjZTciLCJyaCI6IjAuQVF3QW9taFJaX2pkSTBpSzlIYnZNY2VVTE05Q2p6ekMxX2xQcnpwa1Zxenk0LXdNQUFBLiIsInJvbGVzIjpbIkJJU2VydmljZUFQSS5SZWFkV3JpdGUiLCJCSVNlcnZpY2VBUEkuUmVhZE9ubHkiXSwic3ViIjoiMmI0NjBkYjUtYzliYS00ZjMxLThmNzYtNjg1ZmY5NmEyY2U3IiwidGlkIjoiNjc1MTY4YTItZGRmOC00ODIzLThhZjQtNzZlZjMxYzc5NDJjIiwidXRpIjoiLWprYUs5WGhGa1dqOHM0enNMNGJBQSIsInZlciI6IjEuMCJ9.P6Qe5g0oLsgaWTjJr-mC8zZ04xqa6L4jboe5UxrVm8cBnGE30tXMMqkYxQTVwphTmaMYQvae322FJCIAvzqc__9jBLsegXWB094kH2lChv7ynLcykHRcfFhF6MXDgjzN7APrJOFzhZtkLyZQhv6aRU38gHpbAEEhkEqNgVkaQl3ilzZplu4sEI4sMOIzoGrnKl0oPCL0RgXP98spAZ2uYuFBB_JPMGXwIjnOGo_9QnR2SGTJWzbHM95cz6dmBRdM9hoCdEWh5wi3x3wta80skrqIVeFx28hr8rXrosIlE6CUhZpVos8Cf2DWwDLkoe3_QeoDFn8Ksp4Ygp_gP2CZ-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"CustomerName\" : \"Aritzia\",\n\"userEmail\": \"test@test.com\",\n\"FRomDate\" : \"2021-11-10\",\n\"ToDate\" : \"2022-12-12\",\n\"ShipmentId\" : null,\n\"ForwarderReference\" : null,\n\"Project\" : null,\n\"ForwarderCode\" : null,\n\"ForwarderService\" : null,\n\"Mode\" : null,\n\"StatusUpdateOption\" : null,\n\"NormalizedStatusCodes\" : null,\n\"BIStatusName\" : null,  \n\"IncrementalData\" : \"N\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/DataAcquisition/ShipmentStatus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"DataAcquisition",
+						"ShipmentStatus"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
